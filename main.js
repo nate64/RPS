@@ -1,121 +1,103 @@
-// Basic Objectives:
-// A user selects rock, paper, or scissors
-// Computer randomly chooses
-// hint: have your choices in an array and randomly choose 
-// Display the user and computers choice on the screen
-// Display the winner
-//Rock Paper Scissors against the computer
-
-
 var Rock = document.getElementById('Rock')
 var Paper = document.getElementById('Paper')
 var Scissors = document.getElementById('Scissors')
 var userChoice
-var userScore
-var compScore
+var userScore = 0
+var compScore = 0
 var compChoice
-var draw
-//var compare
-
+var draw = 0
+var compare
 var rPs = ['Rock', 'Paper', 'Scissors']
 
 Rock.addEventListener('click', function() {
-  var compChoice = rPs[Math.floor(Math.random() * rPs.length)];
+  compChoice = rPs[Math.floor(Math.random() * rPs.length)];
   userChoice = 'Rock'
-  alert('You Chose ' + userChoice + ' And The Computer Chose: ' + compChoice)
-  //you win or lose statement
+  compare(userChoice, compChoice)
 })
 
 Paper.addEventListener('click', function() {
-  var compChoice = rPs[Math.floor(Math.random() * rPs.length)];
+  compChoice = rPs[Math.floor(Math.random() * rPs.length)];
   userChoice = 'Paper'
-  alert('You Chose ' + userChoice + ' And The Computer Chose: ' + compChoice)
-  //you win or lose statement
+  compare(userChoice, compChoice)
 })
 
 Scissors.addEventListener('click', function() {
-  var compChoice = rPs[Math.floor(Math.random() * rPs.length)];
+  compChoice = rPs[Math.floor(Math.random() * rPs.length)];
   userChoice = 'Scissors'
-  alert('You Chose ' + userChoice + ' And The Computer Chose: ' + compChoice)
-  //you win or lose statement
+  compare(userChoice, compChoice)
 })
 
-//rock beats scissor
-//scissor beats paper
-//paper beats rock
-switch(userChoice) {
+function compare(userChoice, compChoice){
+  switch(userChoice) {
+    
+    case "Rock":
+      console.log()
+      if (compChoice === 'Paper') {
+        alert('Computer Wins This Round.')
+        compScore += 1
+        document.getElementById('compScore').innerHTML = "Computer: " + compScore
+      } else if (compChoice == userChoice) {
+        alert("It's A Draw")
+        draw += 1
+        document.getElementById('draw').innerHTML = "Draw: " + draw
+      } else {
+        alert("You Win This Round")
+        userScore += 1
+        document.getElementById('userScoreScore').innerHTML = "Player 1: " + userScore
+      }
+        break;
+  
+    case "Scissors":
+    debugger
+      console.log()
+      if (compChoice === 'Rock') {
+        alert('Computer Wins This Round.')
+        compScore += 1
+        document.getElementById('compScore').innerHTML = "Computer Score: " + compScore
+      } else if (compChoice === userChoice) {
+        alert("It's a Draw")
+        draw += 1
+      } else {
+        alert("You Win This Round")
+        userScore += 1
+        //inner html here??
+      }
+        break;
 
-  case 'Rock':
-    userChoice == 'Rock' && compChoice == 'Paper'
-      compScore += 1
-      alert ('Computer Wins this Round.')
-      //break;
+    case "Paper":
+    debugger
+      console.log()
+      if (compChoice === 'Scissors') {
+        alert('Computer Wins This Round')
+        compScore += 1
+        document.getElementById('compScore').innerHTML = "Computer Score: " + compScore
+      } else if (compChoice === userChoice) {
+        alert("It's a Draw")
+        draw += 1
+      } else {
+        alert('You Win This Round')
+        userScore += 1
+      }
+    }
 
-  case 'Rock':
-    userChoice == 'Rock' && compChoice == 'Scissors'
-      userScore += 1
-      alert ('You Win This Round!')
-      //break;
+    
+      // break;
+  }
+  
+  
 
-  case 'Paper':
-    userChoice == 'Paper' && compChoice == 'Scissors'
-      compScore += 1
-      alert ('Computer Wins this Round.')
-      //break;
 
-  case 'Paper':
-    userChoice == 'Paper' && compChoice == 'Rock'
-      userScore += 1
-      alert ('You Win This Round!')
-      //break;
 
-  case 'Scissors':
-    userChoice == 'Scissors' && compChoice == 'Rock'
-      compScore += 1
-      alert ('Computer Wins this Round.')
-      //break;
 
-  case 'Scissors':
-    userChoice == 'Scissors' && compChoice == 'Paper'
-      userScore +=1
-      alert ('You Win This Round!')
-    //break;
-
-  //default:
-    userChoice === compChoice
-      draw += 1
-     alert ("It's a Draw")
-}
-
-// var userScore = document.getElementById('fluff')
+// document.getElementById('draw').innerHTML = "Draws: " + draw
 // h2.innerHTML = userScore[e.target.id]
-
-document.getElementById('userScore').innerHTML = userScore
-
-
-
-
-
-// function clearEverything() {
-//   input.value = ''
-//   label.innerHTML = ''
-//   list.innerHTML = null
+// / alert('You Chose ' + userChoice + ' And The Computer Chose: ' + compChoice)
+// h2.innerHTML = userScore.target.id
+// function render() {
+//   $wins.innerHTML = 'Wins: ' + score.win
+//   $losses.innerHTML = 'Losses: ' + score.lose
+//   $ties.innerHTML = 'Ties: ' + score.tie
 // }
 
-// clear.addEventListener('click', clearEverything)
 
-// input.addEventListener('keyup', function(e) {
-//   label.innerHTML = e.target.value
-// })
-
-// btn.addEventListener('click', function() {
-//   var value = input.value
-//   var li = document.createElement('li')
-//   li.innerHTML = value
-//   list.append(li)
-//   console.log(value)
-//   input.value = ''
-//   label.innerHTML = ''
-//   input.focus()
-// })
 
